@@ -1,5 +1,5 @@
 <ul>
-  <li *ngFor="let hit of hits;let i = index">
+  <li *ngFor="let hit of hits;let i = index; trackBy: trackByFn">
     {{hit.title}} ({{hit.count}})
     <ng-container *ngIf="hit.hasSubHits">
       <input type="checkbox" [id]="'sub-category-toggle-' + i" class="checkbox" #checkbox>

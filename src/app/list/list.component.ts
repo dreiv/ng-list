@@ -51,4 +51,8 @@ export class ListComponent implements AfterViewInit {
       });
     });
   }
+
+  trackByFn(index, item) {
+    return item.title;
+  }
 }
