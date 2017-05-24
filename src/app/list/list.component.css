@@ -13,11 +13,11 @@
   100% { transform: rotate(360deg); }
 }
 
-.css-label {
+.label {
   cursor: pointer;
 }
 
-.css-checkbox {
+.checkbox {
   display: none;
 }
 
@@ -29,20 +29,20 @@
   display: none;
 }
 
-.css-checkbox:checked:not(:disabled) + .css-label .minus {
+.checkbox:checked:not(:disabled) + .label .minus {
   display: inline;
 }
-.css-checkbox:checked + .css-label .plus {
+.checkbox:checked + .label .plus {
   display: none;
 }
 
 .css-content {
   display: none;
 }
-.css-checkbox:checked ~ .css-content {
+.checkbox:checked ~ .css-content {
   display: block;
 }
 
-.css-checkbox:disabled + .css-label .loader {
+.checkbox:disabled + .label .loader {
   display: inline-block;
 }
