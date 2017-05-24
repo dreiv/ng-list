@@ -11,22 +11,25 @@ export class ListComponent {
     {
       title: "Catei",
       count: 20,
-      subhits: [
-        {
-          title: "Potoci",
-          count: 13
-        },
-        {
-          title: "Molfaitori",
-          count: 7
-        }
-      ]
+      hasSubHits: true,
     },
     {
       title: "Maimute",
-      count: 3
+      count: 3,
+      hasSubHits: false
     }
   ]
 
   constructor() { }
+
+  getSubHits(hit: any) {
+    hit.subHits = [{
+      title: "Potoci",
+      count: 13
+    },
+      {
+        title: "Molfaitori",
+        count: 7
+      }];
+  }
 }

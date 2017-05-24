@@ -1,10 +1,10 @@
 <ul>
   <li *ngFor="let hit of hits">
     {{hit.title}} ({{hit.count}})
-    <ng-container *ngIf="hit.subhits">
-      +
+    <ng-container *ngIf="hit.hasSubHits">
+      <button (click)="getSubHits(hit)">+</button>
       <ul>
-        <li *ngFor="let hit of hit.subhits">{{hit.title}} ({{hit.count}})</li>
+        <li *ngFor="let hit of hit.subHits">{{hit.title}} ({{hit.count}})</li>
       </ul>
     </ng-container>
   </li>
