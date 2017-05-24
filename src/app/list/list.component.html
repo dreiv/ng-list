@@ -1,9 +1,17 @@
 <ul>
-  <li *ngFor="let hit of hits">
+  <li *ngFor="let hit of hits;let i = index">
     {{hit.title}} ({{hit.count}})
     <ng-container *ngIf="hit.hasSubHits">
-      <input type="checkbox" id="toggleSubHits" name="toggleSubHits" class="css-checkbox" (click)="toggleSubHits($event, hit)">
-      <label for="toggleSubHits" class="css-label">
+
+      <ng-container *ngIf="!hit.subHits;else other_content">
+        <input type="checkbox" id=`toggle_${i}` class="css-checkbox" (click)="toggleSubHits($event, hit)">
+      </ng-container>
+
+      <ng-template #other_content>
+        <input type="checkbox" id=`toggle_${i}` class="css-checkbox" checked>
+      </ng-template>
+
+      <label for=`toggle_${i}` class="css-label">
         <span class="plus">+</span>
         <span class="minus">-</span>
         <span class="loader"></span>
