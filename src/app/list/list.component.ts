@@ -30,27 +30,25 @@ export class ListComponent implements AfterViewInit {
     },
   ];
 
-  @ViewChildren('checkbox') checkboxList: QueryList<ElementRef>;
+  @ViewChildren('checkbox') toggles: QueryList<ElementRef>;
 
   constructor(private renderer: Renderer2) { }
 
   ngAfterViewInit(): void {
-    this.checkboxList.forEach(component => {
-      const element = component.nativeElement;
-      const index:number = +component.nativeElement.id.match(/\d+$/);
-      const cancelClick = this.renderer.listen(element, 'click', () => {
+    this.toggles.forEach(component => {
+      const toggle = component.nativeElement;
+      const index:number = +toggle.id.match(/\d+$/);
+      const cancelClick = this.renderer.listen(toggle, 'click', () => {
         cancelClick();
 
-        this.renderer.setProperty(element, 'disabled', 'true');
-          Observable.of(this.response)
-            .delay(2000)
-            .subscribe( (data) => {
-              this.hits[index]["subHits"] = data;
-              this.renderer.setProperty(element, 'disabled', null);
-            })
-
-          console.log('should not click any more');
+        this.renderer.setProperty(toggle, 'disabled', 'true');
+        Observable.of(this.response)
+          .delay(2000)
+          .subscribe( (data) => {
+            this.hits[index]["subHits"] = data;
+            this.renderer.setProperty(toggle, 'disabled', null);
         });
-    })
+      });
+    });
   }
 }
