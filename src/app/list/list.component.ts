@@ -24,19 +24,24 @@ export class ListComponent {
 
   constructor() { }
 
-  getSubHits(hit: any) {
-    const response = [{
-      title: "Potoci",
-      count: 13
-    },
-      {
-        title: "Molfaitori",
-        count: 7
+  toggleSubHits(event, hit) {
+    const response = [
+      { title: "Potoci", count: 13 },
+      { title: "Molfaitori", count: 7
       }];
 
-    Observable.of(response)
-        .delay(2000)
-        .subscribe( function(x) {
-      hit.subHits = x;
-    })};
+    console.log('toggled', event);
+
+    const element: HTMLInputElement = event.target;
+
+    if(element.checked && !hit.subHits) {
+      element.disabled = true;
+      Observable.of(response)
+          .delay(2000)
+          .subscribe( function(x) {
+            hit.subHits = x;
+            element.disabled = false
+          })
+    }
+  }
 }
