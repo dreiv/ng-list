@@ -1,0 +1,14 @@
+<ul>
+  <li *ngFor="let hit of hits">
+    {{hit.title}} ({{hit.count}})
+    <ng-container *ngIf="hit.subhits">
+      +
+      <ul>
+        <li *ngFor="let hit of hit.subhits">{{hit.title}} ({{hit.count}})</li>
+      </ul>
+    </ng-container>
+  </li>
+</ul>
+
+
+

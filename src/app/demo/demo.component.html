@@ -1,0 +1,19 @@
+<ng-container *ngTemplateOutlet="greet"></ng-container>
+<hr>
+<ng-container *ngTemplateOutlet="eng; context: myContext"></ng-container>
+<hr>
+<ng-container *ngTemplateOutlet="svk; context: myContext"></ng-container>
+
+
+<ng-container *ngTemplateOutlet="svk; context: {hit:'lalala'}"></ng-container>
+<hr>
+
+<ng-template [ngTemplateOutlet]="hit" [ngOutletContext]="{$implicit: {name:'World', age: 34}}"></ng-template>
+
+
+<hr>
+<ng-template #greet><span>Hello</span></ng-template>
+<ng-template #eng let-name><span>Hello {{name}}!</span></ng-template>
+<ng-template #svk let-hit="hit"><span>Ahoj {{hit}}!</span></ng-template>
+
+<ng-template #hit let-hit><span>Hello {{hit.name}} aged {{hit.age}}!</span></ng-template>
