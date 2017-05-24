@@ -23,7 +23,12 @@ export class ListComponent {
       title: "Maimute",
       count: 3,
       hasSubHits: false
-    }
+    },
+    {
+      title: "Pesti",
+      count: 9,
+      hasSubHits: true,
+    },
   ]
 
   constructor() { }

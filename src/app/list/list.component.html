@@ -4,14 +4,14 @@
     <ng-container *ngIf="hit.hasSubHits">
 
       <ng-container *ngIf="!hit.subHits;else other_content">
-        <input type="checkbox" id=`toggle_${i}` class="css-checkbox" (click)="toggleSubHits($event, hit)">
+        <input type="checkbox" [id]="'toggle_' + i" class="css-checkbox" (click)="toggleSubHits($event, hit)">
       </ng-container>
 
       <ng-template #other_content>
-        <input type="checkbox" id=`toggle_${i}` class="css-checkbox" checked>
+        <input type="checkbox" [id]="'toggle_' + i" class="css-checkbox" checked>
       </ng-template>
 
-      <label for=`toggle_${i}` class="css-label">
+      <label [for]="'toggle_' + i" class="css-label">
         <span class="plus">+</span>
         <span class="minus">-</span>
         <span class="loader"></span>
