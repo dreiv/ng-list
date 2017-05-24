@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Observable } from 'rxjs/Rx';
+
 
 @Component({
   selector: 'app-list',
@@ -23,7 +25,7 @@ export class ListComponent {
   constructor() { }
 
   getSubHits(hit: any) {
-    hit.subHits = [{
+    const response = [{
       title: "Potoci",
       count: 13
     },
@@ -31,5 +33,10 @@ export class ListComponent {
         title: "Molfaitori",
         count: 7
       }];
-  }
+
+    Observable.of(response)
+        .delay(2000)
+        .subscribe( function(x) {
+      hit.subHits = x;
+    })};
 }
