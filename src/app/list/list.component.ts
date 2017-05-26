@@ -37,7 +37,7 @@ export class ListComponent implements AfterViewInit {
   ngAfterViewInit(): void {
     this.toggles.forEach(component => {
       const toggle = component.nativeElement;
-      const index:number = +toggle.id.match(/\d+$/);
+      const index:number = +toggle.getAttribute('data-index');
       const cancelClick = this.renderer.listen(toggle, 'click', () => {
         cancelClick();
 
