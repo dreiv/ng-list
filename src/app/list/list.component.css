@@ -14,6 +14,7 @@
   display: inline-block;
   text-align: center;
   box-sizing: border-box;
+  cursor: pointer;
 }
 
 [type="checkbox"]:checked:before {
@@ -47,4 +48,10 @@
 
 ul {
   list-style: none;
+  padding-left: 1em;
+}
+
+:host {
+  display: block;
+  background: #ccc;
 }

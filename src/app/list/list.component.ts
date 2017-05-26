@@ -19,7 +19,7 @@ export class ListComponent implements AfterViewInit {
       hasSubHits: true,
     },
     {
-      title: "Maimute",
+      title: "pneumonoultramicroscopicsilicovolcanoconiosis",
       count: 3,
       hasSubHits: false
     },
@@ -28,6 +28,11 @@ export class ListComponent implements AfterViewInit {
       count: 9,
       hasSubHits: true,
     },
+    {
+      title: "floccinaucinihilipilification antidisestablishmentarianism",
+      count: 9,
+      hasSubHits: true,
+    }
   ];
 
   @ViewChildren('checkbox') toggles: QueryList<ElementRef>;
@@ -43,7 +48,7 @@ export class ListComponent implements AfterViewInit {
 
         this.renderer.setProperty(toggle, 'disabled', 'true');
         Observable.of(this.response)
-          .delay(2000)
+          .delay(200)
           .subscribe( (data) => {
             this.hits[index]["subHits"] = data;
             this.renderer.setProperty(toggle, 'disabled', null);
