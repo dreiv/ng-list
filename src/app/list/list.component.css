@@ -1,4 +1,4 @@
-[type="checkbox"] {
+.checkbox {
   position: absolute;
   width: 0;
   height: 0;
@@ -7,9 +7,10 @@
 
 label {
   float: right;
+  word-wrap: break-word;
 }
 
-[type="checkbox"] + label:before {
+.checkbox + label:before {
   content: '+';
   width: 1.2em;
   height: 1.2em;
@@ -20,15 +21,15 @@ label {
   cursor: pointer;
 }
 
-[type="checkbox"]:checked + label:before {
+.checkbox:checked + label:before {
   content: '-';
 }
 
-[type="checkbox"]:focus + label:before {
+.checkbox:focus:not(.loading) + label:before {
   outline: #3b99fc auto;
 }
 
-[type="checkbox"]:disabled + label:before {
+.checkbox.loading + label:before {
   content: '';
   border: 2px solid #f3f3f3;
   border-top: 2px solid #666;
@@ -45,7 +46,7 @@ label {
   display: none;
 }
 
-[type="checkbox"]:checked ~ .content {
+.checkbox:checked ~ .content {
   display: inherit;
 }
 
@@ -57,6 +58,10 @@ ul {
 :host {
   display: block;
   background: #ccc;
+}
+
+li {
+  word-wrap: break-word;
 }
 
 li:after {

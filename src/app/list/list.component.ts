@@ -46,12 +46,13 @@ export class ListComponent implements AfterViewInit {
       const cancelClick = this.renderer.listen(toggle, 'click', () => {
         cancelClick();
 
-        this.renderer.setProperty(toggle, 'disabled', 'true');
+        this.renderer.addClass(toggle, 'loading');
         Observable.of(this.response)
-          .delay(200)
+          .delay(5000)
           .subscribe( (data) => {
             this.hits[index]["subHits"] = data;
-            this.renderer.setProperty(toggle, 'disabled', null);
+            this.renderer.setProperty(toggle, 'checked', true);
+            this.renderer.removeClass(toggle, 'loading');
         });
       });
     });

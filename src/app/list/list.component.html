@@ -2,7 +2,7 @@
   <li *ngFor="let hit of hits;let i = index">
     <a href="#">{{hit.title}} ({{hit.count}})</a>
     <ng-container *ngIf="hit.hasSubHits">
-      <input type="checkbox" [id]="'sub-category-toggle-' + i" #checkbox>
+      <input type="checkbox" [id]="'sub-category-toggle-' + i" #checkbox class="checkbox">
       <label [for]="'sub-category-toggle-' + i"></label>
       <ul class="content">
         <li *ngFor="let hit of hit.subHits"><a href="#">{{hit.title}} ({{hit.count}})</a></li>
@@ -10,6 +10,3 @@
     </ng-container>
   </li>
 </ul>
-
-
-
