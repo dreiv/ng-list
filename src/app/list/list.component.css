@@ -3,10 +3,13 @@
   width: 0;
   height: 0;
   margin: 0;
-  outline: none;
 }
 
-[type="checkbox"]:before {
+label {
+  float: right;
+}
+
+[type="checkbox"] + label:before {
   content: '+';
   width: 1.2em;
   height: 1.2em;
@@ -17,15 +20,15 @@
   cursor: pointer;
 }
 
-[type="checkbox"]:checked:before {
+[type="checkbox"]:checked + label:before {
   content: '-';
 }
 
-[type="checkbox"]:focus:before {
+[type="checkbox"]:focus + label:before {
   outline: #3b99fc auto;
 }
 
-[type="checkbox"]:disabled:before {
+[type="checkbox"]:disabled + label:before {
   content: '';
   border: 2px solid #f3f3f3;
   border-top: 2px solid #666;
@@ -38,11 +41,11 @@
   100% { transform: rotate(360deg); }
 }
 
-.css-content {
+.content {
   display: none;
 }
 
-[type="checkbox"]:checked ~ .css-content {
+[type="checkbox"]:checked ~ .content {
   display: inherit;
 }
 
@@ -54,4 +57,10 @@ ul {
 :host {
   display: block;
   background: #ccc;
+}
+
+li:after {
+  content: "";
+  display: table;
+  clear: both;
 }
