@@ -48,7 +48,7 @@ export class ListComponent implements AfterViewInit {
 
         this.renderer.addClass(toggle, 'loading');
         Observable.of(this.response)
-          .delay(5000)
+          .delay(2000)
           .subscribe( (data) => {
             this.hits[index]["subHits"] = data;
             this.renderer.setProperty(toggle, 'checked', true);
